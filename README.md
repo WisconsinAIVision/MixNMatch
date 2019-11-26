@@ -15,7 +15,7 @@ The code and pre-trained models will be released soon.
 <img src='data/MixNMatch.png' align="middle" width=1000>
 
 ### 2. Manipulating real images by varying a single factor
-<img src='data/vary.png' align="middle" width=1000>
+<img src='data/bird_vary.png' align="middle" width=1000>
 
 ### 3. Inferring style from unseen data
 
