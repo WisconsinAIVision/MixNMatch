@@ -13,16 +13,27 @@ The code and pre-trained models will be released soon.
 
 ### 1. Extracting all factors from differnet real images to synthesize a new image
 <img src='data/MixNMatch.png' align="middle" width=1000>
+<br>
 
-### 2. Manipulating real images by varying a single factor
+### 2. Comparison between the feature and code mode
+<img src='data/main_result2.png' align="middle" width=1000>
+<br>
+
+### 3. Manipulating real images by varying a single factor
 <img src='data/bird_vary.png' align="middle" width=1000>
+<br>
 
-### 3. Inferring style from unseen data
-
+### 4. Inferring style from unseen data
 Cartoon -> image             |  Sketch -> image
 :-------------------------:|:-------------------------:
 <img src='data/cartoon2img.png' align="middle" width=450>  |  <img src='data/sketch2img.png' align="middle" width=450>
+<br>
 
+### 5. Converting a reference image according to a reference video
+<p align="center">
+<img src='data/img2gif2.gif' align="middle" width=350>
+</p>
+<br>
 
 ## Citation
 If you find this useful in your research, consider citing our work:
