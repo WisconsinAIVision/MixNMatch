@@ -1,11 +1,11 @@
-# MixNMatch: Multifactor Disentanglement and Encoding for Conditional Image Generation <br> [[Paper]](#)
+# MixNMatch: Multifactor Disentanglement and Encoding for Conditional Image Generation <br> [[Paper]](https://arxiv.org/abs/1911.11758)
 
 [Yuheng Li](https://github.com/Yuheng-Li),
 [Krishna Kumar Singh](http://krsingh.cs.ucdavis.edu/),
 [Utkarsh Ojha](https://utkarshojha.github.io/),
 [Yong Jae Lee](https://web.cs.ucdavis.edu/~yjlee/)<br>
 UC Davis <br>
-In [arXiv, 2019](#)
+In [arXiv, 2019](https://arxiv.org/abs/1911.11758)
 
 The code and pre-trained models will be released soon. <br>
 
