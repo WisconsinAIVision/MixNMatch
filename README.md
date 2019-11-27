@@ -7,8 +7,8 @@
 UC Davis <br>
 In [arXiv, 2019](#)
 
-The code and pre-trained models will be released soon.
-Demo video can be found [here](https://youtu.be/j2rmVVxCgL8)
+The code and pre-trained models will be released soon. <br>
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/j2rmVVxCgL8/0.jpg)](https://www.youtube.com/watch?v=j2rmVVxCgL8)
 ## Results
 
 ### 1. Extracting all factors from differnet real images to synthesize a new image
