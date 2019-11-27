@@ -11,7 +11,7 @@ The code and pre-trained models will be released soon. <br>
 
 ## Demo Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/j2rmVVxCgL8/0.jpg)](https://www.youtube.com/watch?v=j2rmVVxCgL8)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/w36vnkIbyjs/0.jpg)](https://www.youtube.com/watch?v=w36vnkIbyjs)
 
 ## Results
 
