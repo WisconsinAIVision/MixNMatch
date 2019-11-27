@@ -1,4 +1,4 @@
-# MixNMatch: Multifactor Disentanglement and Encoding for Conditional Image Generation
+# MixNMatch: Multifactor Disentanglement and Encoding for Conditional Image Generation <br> [[Paper]](#)
 
 [Yuheng Li](https://github.com/Yuheng-Li),
 [Krishna Kumar Singh](http://krsingh.cs.ucdavis.edu/),
