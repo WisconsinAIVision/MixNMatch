@@ -95,7 +95,7 @@ class Trainer(object):
         real_z = torch.FloatTensor( self.batch_size, cfg.GAN.Z_DIM ).normal_(0, 1).to(device)
 
         if random.uniform(0, 1)<0.2: 
-            real_p = torch.softmax( torch.FloatTensor( self.batch_size, 20 ).normal_(0, 1), dim =1).to(device)
+            real_p = torch.softmax( torch.FloatTensor( self.batch_size, cfg.SUPER_CATEGORIES ).normal_(0, 1), dim =1).to(device)
         else:
             real_p = torch.zeros( self.batch_size, cfg.SUPER_CATEGORIES ).to(device)
             idxs = torch.LongTensor( self.batch_size ).random_(0, cfg.SUPER_CATEGORIES)
