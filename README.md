@@ -7,7 +7,7 @@
 UC Davis <br>
 In [arXiv, 2019](https://arxiv.org/abs/1911.11758)
 
-The code and pre-trained models will be released soon. <br>
+1/31/2020 update: Code and models released. <br>
 
 ## Demo Video
 
