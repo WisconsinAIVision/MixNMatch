@@ -32,7 +32,7 @@ Download the formatted CUB data from this [link](https://drive.google.com/file/d
 
 ### Downloading pretrained models
 
-Pretrained generator models for CUB, Stanford Dogs are available at this [link](https://drive.google.com/open?id=1c4NtKyccBNDuh_vqB-KlzZpRv9cQxEI7). Download and extract them in the `models` directory.
+Pretrained models for CUB are available at this [link](https://drive.google.com/open?id=1c4NtKyccBNDuh_vqB-KlzZpRv9cQxEI7). Download and extract them in the `models` directory.
 
 
 ## Evaluating the model
