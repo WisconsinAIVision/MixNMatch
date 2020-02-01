@@ -13,6 +13,8 @@ The code and pre-trained models will be released soon. <br>
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/w36vnkIbyjs/0.jpg)](https://www.youtube.com/watch?v=w36vnkIbyjs)
 
+## Code Usage
+
 ## Results
 
 ### 1. Extracting all factors from differnet real images to synthesize a new image
