@@ -38,7 +38,7 @@ Pretrained models for CUB are available at this [link](https://drive.google.com/
 ## Evaluating the model
 In `code`
 - Run `python eval.py --z path_to_pose_source_images --b path_to_bg_source_images --p path_to_shape_source_images --c path_to_color_source_images --out path_to_ourput --mode code_or_feature --models path_to_pretrained_models`
-- For example `python eval.py --z z --b b --p p --c c --mode code --models ../models`
+- For example `python eval.py --z pose/pose-1.png --b background/background-1.png --p shape/shape-1.png --c color/color.png --mode code --models ../models`
   - **NOTE**: Note that (1) in feature mode pose source images will be ignored; (2) Generator, Encoder and Feature_extractor in models folder should be named as G.pth, E.pth and EX.pth  
 
 ## Training your own model
