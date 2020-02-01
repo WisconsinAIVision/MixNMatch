@@ -27,11 +27,11 @@ gpus = [int(ix) for ix in cfg.GPU_ID.split(',')]
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--z",  help="dir to z(pose) source images" )  
-parser.add_argument("--b",  help="dir to b(background) source images" ) 
-parser.add_argument("--p",  help="dir to p(shape) source images" )
-parser.add_argument("--c",  help="dir to c(texture) source images" )
-parser.add_argument("--out",  help="dir to output images" )
+parser.add_argument("--z",  help="path to z(pose) source image" )  
+parser.add_argument("--b",  help="path to b(background) source image" ) 
+parser.add_argument("--p",  help="path to p(shape) source image" )
+parser.add_argument("--c",  help="path to c(texture) source image" )
+parser.add_argument("--out",  help="path to output image" )
 parser.add_argument("--mode",  help="either code or feature" )
 parser.add_argument("--models",  help="dir to pretrained models" )
 args = parser.parse_args()
@@ -74,28 +74,20 @@ def load_network(names):
 
 
 
-def get_images(dir, size=[128,128]):
+def get_images(fire, size=[128,128]):
     transform = transforms.Compose([ transforms.Resize( (size[0],size[1]) ) ])
     normalize = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5,0.5,0.5),(0.5,0.5,0.5))])    
-    img_list = os.listdir(dir)
-    img_list.sort()     
-    images = []
-    for t in range (len(img_list) ):
-        img = Image.open(   os.path.join( dir, img_list[t])   ).convert('RGB') 
-        img = transform(img)
-        img = normalize(img)  
-        images.append(img)     
-    images = torch.stack(images)  
-    return images
+    img = Image.open(   fire   ).convert('RGB') 
+    img = transform(img)
+    img = normalize(img)   
+    return img.unsqueeze(0)
 
 
 
 
-def save_img(img, name, image_dir ):  
-
-    img = img.cpu()  
-    name = os.path.join(image_dir,name)  
-    vutils.save_image( img, name, scale_each=True, normalize=True )
+def save_img(img, file ):  
+    img = img.cpu()    
+    vutils.save_image( img, file, scale_each=True, normalize=True )
     real_img_set = vutils.make_grid(img).numpy()
     real_img_set = np.transpose(real_img_set, (1, 2, 0))
     real_img_set = real_img_set * 255
@@ -106,68 +98,51 @@ def save_img(img, name, image_dir ):
 def eval_code():
 
     names = [ os.path.join(MODELS,'G.pth'), os.path.join(MODELS,'E.pth'), os.path.join(MODELS,'EX.pth')  ] 
+    netG, encoder, _ = load_network(names)
     
+
     real_img_z  = get_images(Z)          
     real_img_b  = get_images(B) 
     real_img_p  = get_images(P)            
     real_img_c  = get_images(C)        
+   
 
-    assert(  real_img_z.shape[0] == real_img_b.shape[0] == real_img_p.shape[0] == real_img_c.shape[0]  )  
 
-    
-
-    netG, encoder, _ = load_network(names)
-    
-    for i in range(real_img_z.shape[0]):
-
-        with torch.no_grad():
-            fake_z2, _, _, _ = encoder( real_img_z.to(device), 'softmax' )
-            fake_z1, fake_b, _, _ = encoder( real_img_b.to(device), 'softmax' )
-            _, _, fake_p, _ = encoder( real_img_p.to(device), 'softmax' )
-            _, _, _, fake_c = encoder( real_img_c.to(device), 'softmax' )
-     
-           
-            fake_imgs, _, _, _ = netG(fake_z1, fake_z2, fake_c, fake_p,  fake_b, 'code' )
+    with torch.no_grad():
+        fake_z2, _, _, _ = encoder( real_img_z.to(device), 'softmax' )
+        fake_z1, fake_b, _, _ = encoder( real_img_b.to(device), 'softmax' )
+        _, _, fake_p, _ = encoder( real_img_p.to(device), 'softmax' )
+        _, _, _, fake_c = encoder( real_img_c.to(device), 'softmax' )    
+        
+        fake_imgs, _, _, _ = netG(fake_z1, fake_z2, fake_c, fake_p,  fake_b, 'code' )
+        img = fake_imgs[2]
          
-
-    for i in range(  real_img_z.shape[0] ):
-        img = fake_imgs[2][i]
-        name =   str(i).zfill(4) + '.png'
-        save_img(img, name, OUT)
+    save_img(img, OUT)
 
 
 
 
 def eval_feature():
 
-    names = [ os.path.join(MODELS,'G.pth'), os.path.join(MODELS,'E.pth'), os.path.join(MODELS,'EX.pth')  ] 
+    names = [ os.path.join(MODELS,'G.pth'), os.path.join(MODELS,'E.pth'), os.path.join(MODELS,'EX.pth')  ]
+    netG, encoder, extractor = load_network(names)   
     
        
     real_img_b  = get_images(B) 
     real_img_p  = get_images(P)            
-    real_img_c  = get_images(C)        
+    real_img_c  = get_images(C)            
 
-    assert(  real_img_b.shape[0] == real_img_p.shape[0] == real_img_c.shape[0]  )  
 
-    
+    with torch.no_grad():
+        shape_feature = extractor( real_img_p.to(device) )
+        fake_z1, fake_b, _, _ = encoder( real_img_b.to(device), 'softmax' )
+        _, _, _, fake_c = encoder( real_img_c.to(device), 'softmax' )     
+        
+        fake_imgs, _, _, _ = netG(fake_z1, None, fake_c, shape_feature, fake_b, 'feature' )
+        img = fake_imgs[2]       
 
-    netG, encoder, extractor = load_network(names)
-    
-    for i in range(real_img_b.shape[0]):
 
-        with torch.no_grad():
-            shape_feature = extractor( real_img_p.to(device) )
-            fake_z1, fake_b, _, _ = encoder( real_img_b.to(device), 'softmax' )
-            _, _, _, fake_c = encoder( real_img_c.to(device), 'softmax' )
-     
-           
-            fake_imgs, _, _, _ = netG(fake_z1, None, fake_c, shape_feature, fake_b, 'feature' )
-         
-
-    for i in range(  real_img_b.shape[0] ):
-        img = fake_imgs[2][i]
-        name =   str(i).zfill(4) + '.png'
-        save_img(img, name, OUT)
+    save_img(img, OUT)
 
 
 
