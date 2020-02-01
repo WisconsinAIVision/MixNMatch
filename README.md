@@ -29,19 +29,12 @@ cd MixNMatch
 ### Setting up the data
 
 Download the formatted CUB data from this [link](https://drive.google.com/file/d/1ardy8L7Cb-Vn1ynQigaXpX_JHl0dhh2M/view?usp=sharing) and extract it inside the `data` directory
-```bash
-cd data
-unzip birds.zip
-cd ..
-```
+
 ### Downloading pretrained models
 
-Pretrained generator models for CUB, Stanford Dogs are available at this [link](xxxxxx). Download and extract them in the `models` directory.
-```bash
-cd models
-unzip netG.zip
-cd ../code/
-```
+Pretrained generator models for CUB, Stanford Dogs are available at this [link](https://drive.google.com/open?id=1c4NtKyccBNDuh_vqB-KlzZpRv9cQxEI7). Download and extract them in the `models` directory.
+
+
 ## Evaluating the model
 In `code`
 - Run `python eval.py --z path_to_pose_source_images --b path_to_bg_source_images --p path_to_shape_source_images --c path_to_color_source_images --out path_to_ourput --mode code_or_feature --models path_to_pretrained_models`
