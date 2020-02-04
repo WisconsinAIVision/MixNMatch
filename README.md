@@ -32,7 +32,7 @@ Download the formatted CUB data from this [link](https://drive.google.com/file/d
 
 ### Downloading pretrained models
 
-Pretrained models for CUB are available at this [link](https://drive.google.com/drive/folders/1c4NtKyccBNDuh_vqB-KlzZpRv9cQxEI7?usp=sharing). Download and extract them in the `models` directory.
+Pretrained models for CUB, Dogs and Cars are available at this [link](https://drive.google.com/drive/folders/1c4NtKyccBNDuh_vqB-KlzZpRv9cQxEI7?usp=sharing). Download and extract them in the `models` directory.
 
 
 ## Evaluating the model
