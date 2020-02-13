@@ -49,8 +49,9 @@ In `code/config.py`:
 - For the first stage training run `python train_first_stage.py output_name`
 - For the second stage training run `python train_second_stage.py output_name path_to_pretrained_G path_to_pretrained_E`
   - **NOTE**:  output will be in `output/output_name`
-
-
+  - **NOTE**:  `path_to_pretrained_G` will be  `output/output_name/Model/G_0.pth`
+  - **NOTE**:  `path_to_pretrained_E` will be  `output/output_name/Model/E_0.pth`
+- For example `python train_second_stage.py Second_stage ../output/output_name/Model/G_0.pth ../output/output_name/Model/E_0.pth`
 
 
 ## Results
