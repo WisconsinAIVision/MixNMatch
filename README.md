@@ -5,7 +5,7 @@
 [Utkarsh Ojha](https://utkarshojha.github.io/),
 [Yong Jae Lee](https://web.cs.ucdavis.edu/~yjlee/)<br>
 UC Davis <br>
-In [arXiv, 2019](https://arxiv.org/abs/1911.11758)
+In [CVPR, 2020](https://arxiv.org/abs/1911.11758)
 
 **1/31/2020 update: Code and models released.** <br>
 
@@ -86,8 +86,8 @@ If you find this useful in your research, consider citing our work:
 @inproceedings{li-arxiv2019,
   title = {MixNMatch: Multifactor Disentanglement and Encoding for Conditional Image Generation},
   author = {Yuheng Li and Krishna Kumar Singh and Utkarsh Ojha and Yong Jae Lee},
-  booktitle = {arXiv},
-  year = {2019}
+  booktitle = {CVPR},
+  year = {2020}
 }
 ```
 
