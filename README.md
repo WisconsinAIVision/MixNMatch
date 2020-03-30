@@ -83,7 +83,7 @@ Cartoon -> image             |  Sketch -> image
 ## Citation
 If you find this useful in your research, consider citing our work:
 ```
-@inproceedings{li-arxiv2019,
+@inproceedings{li-cvpr2020,
   title = {MixNMatch: Multifactor Disentanglement and Encoding for Conditional Image Generation},
   author = {Yuheng Li and Krishna Kumar Singh and Utkarsh Ojha and Yong Jae Lee},
   booktitle = {CVPR},
