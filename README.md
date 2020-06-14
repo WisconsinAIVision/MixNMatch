@@ -13,6 +13,7 @@ In [CVPR, 2020](https://arxiv.org/abs/1911.11758)
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/w36vnkIbyjs/0.jpg)](https://www.youtube.com/watch?v=w36vnkIbyjs)
 
+Online web demo is available now at http://vision1.idav.ucdavis.edu:8005/. Thanks the effort from Yang Xue!
 
 ## Requirements
 - Linux
