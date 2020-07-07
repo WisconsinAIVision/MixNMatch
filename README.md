@@ -12,6 +12,7 @@ In [CVPR, 2020](https://arxiv.org/abs/1911.11758)
 ## Demo Video
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/w36vnkIbyjs/0.jpg)](https://www.youtube.com/watch?v=w36vnkIbyjs)
+
 This is our CVPR2020 presentation video [link](https://www.youtube.com/watch?v=MmFL59X-Xwg) 
 
 ## Web Demo
